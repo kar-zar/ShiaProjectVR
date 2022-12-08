@@ -6,6 +6,7 @@ using UnityEngine;
 public class Scene1MovementScript : MonoBehaviour
 {
     public GameObject Rig;
+    public GameObject Phone;
     public float speed = 2.0f;
     public AudioClip scene1Clip;
     public AudioClip scene2Clip;
@@ -15,6 +16,7 @@ public class Scene1MovementScript : MonoBehaviour
         GetComponent<AudioSource>().loop = false;
         StartCoroutine(playEngineSound());
         Rig = GameObject.FindWithTag("Player");
+        Phone = GameObject.FindWithTag("Phone");
     }
 
     // Update is called once per frame
@@ -27,9 +29,11 @@ public class Scene1MovementScript : MonoBehaviour
     {
         GetComponent<AudioSource>().clip = scene1Clip;
         GetComponent<AudioSource>().Play();
-        yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length-1.1f);
-        Rig.transform.position = new Vector3(-24.73f, 1, 75);
+        yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length-1.15f);
+        Rig.transform.position = new Vector3(-24.73f, 1, 80);
         GetComponent<AudioSource>().clip = scene2Clip;
         GetComponent<AudioSource>().Play();
+        Destroy(Phone);
+        speed = 1.25f;
     }
 }
