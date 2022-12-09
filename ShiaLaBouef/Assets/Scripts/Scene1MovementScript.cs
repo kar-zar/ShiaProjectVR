@@ -11,6 +11,7 @@ public class Scene1MovementScript : MonoBehaviour
     public GameObject Knife;
     public float speed = 2.0f;
     public float shiaSpeed = 2.05f;
+    public int scene = 1;
     public AudioClip scene1Clip;
     public AudioClip scene2Clip;
     // Start is called before the first frame update
@@ -27,7 +28,17 @@ public class Scene1MovementScript : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
-        shiaSpeed = shiaSpeed + 0.0001f;
+        if(scene == 1)
+        {
+            shiaSpeed = shiaSpeed + 0.00013f;
+        }
+        if(scene == 2)
+        {
+            if(Shia.transform.position.z > 145.5f)
+            {
+                shiaSpeed = 0.00f;
+            }
+        }
        
     }
 
@@ -35,9 +46,9 @@ public class Scene1MovementScript : MonoBehaviour
     {
         GetComponent<AudioSource>().clip = scene1Clip;
         GetComponent<AudioSource>().Play();
-        yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length-1.24f);
+        yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length-1.20f);
         Rig.transform.position = new Vector3(-24.73f, 1, 90);
-
+        scene = 2;
         GetComponent<AudioSource>().clip = scene2Clip;
         GetComponent<AudioSource>().Play();
         Shia.transform.position = new Vector3(-30.0f, 0.01f, 85);

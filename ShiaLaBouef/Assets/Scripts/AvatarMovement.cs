@@ -17,5 +17,6 @@ public class AvatarMovement : MonoBehaviour
     {
         speed = XRorigin.GetComponent<Scene1MovementScript>().shiaSpeed;
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        
     }
 }
