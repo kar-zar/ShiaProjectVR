@@ -10,7 +10,7 @@ public class Scene1MovementScript : MonoBehaviour
     public GameObject Shia;
     public GameObject Knife;
     public float speed = 2.0f;
-    public float shiaSpeed = 2.5f;
+    public float shiaSpeed = 2.05f;
     public AudioClip scene1Clip;
     public AudioClip scene2Clip;
     // Start is called before the first frame update
@@ -27,18 +27,20 @@ public class Scene1MovementScript : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        shiaSpeed = shiaSpeed + 0.0001f;
+       
     }
 
     IEnumerator playEngineSound()
     {
         GetComponent<AudioSource>().clip = scene1Clip;
         GetComponent<AudioSource>().Play();
-        yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length-1.15f);
+        yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length-1.24f);
         Rig.transform.position = new Vector3(-24.73f, 1, 90);
 
         GetComponent<AudioSource>().clip = scene2Clip;
         GetComponent<AudioSource>().Play();
-        Shia.transform.position = new Vector3(-24.73f, 0.07f, 85);
+        Shia.transform.position = new Vector3(-30.0f, 0.01f, 85);
         Destroy(Phone);
         Knife.SetActive(true);
         speed = 4f;

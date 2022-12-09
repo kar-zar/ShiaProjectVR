@@ -15,7 +15,7 @@ public class AvatarMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        speed = XRorigin.GetComponent<Scene1MovementScript>().speed;
+        speed = XRorigin.GetComponent<Scene1MovementScript>().shiaSpeed;
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
     }
 }
