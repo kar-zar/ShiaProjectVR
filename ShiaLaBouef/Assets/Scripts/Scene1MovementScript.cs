@@ -9,11 +9,13 @@ public class Scene1MovementScript : MonoBehaviour
     public GameObject Phone;
     public GameObject Shia;
     public GameObject Knife;
+    public GameObject BearTrap;
     public float speed = 2.0f;
     public float shiaSpeed = 2.05f;
     public int scene = 1;
     public AudioClip scene1Clip;
     public AudioClip scene2Clip;
+    public AudioClip scene3Clip;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +41,14 @@ public class Scene1MovementScript : MonoBehaviour
                 shiaSpeed = 0.00f;
             }
         }
+        if(scene == 3)
+        {
+            if(Rig.transform.position.z < 97.0)
+            {
+                speed = 0.0f;
+                BearTrap.SetActive(true);
+            }
+        }
        
     }
 
@@ -46,7 +56,7 @@ public class Scene1MovementScript : MonoBehaviour
     {
         GetComponent<AudioSource>().clip = scene1Clip;
         GetComponent<AudioSource>().Play();
-        yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length-1.20f);
+        yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length-1.06f);
         Rig.transform.position = new Vector3(-24.73f, 1, 90);
         scene = 2;
         GetComponent<AudioSource>().clip = scene2Clip;
@@ -56,5 +66,14 @@ public class Scene1MovementScript : MonoBehaviour
         Knife.SetActive(true);
         speed = 4f;
         shiaSpeed = 4f;
+        yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length - 0.45f);
+        scene = 3;
+        Shia.SetActive(false);
+        GetComponent<AudioSource>().clip = scene3Clip;
+        GetComponent<AudioSource>().Play();
+        speed = 1.0f;
+        Rig.transform.position = new Vector3(35.184f, 1.5f, 115);
+        Rig.transform.eulerAngles = new Vector3(Rig.transform.eulerAngles.x, Rig.transform.eulerAngles.y + 180, Rig.transform.eulerAngles.z);
+
     }
 }
