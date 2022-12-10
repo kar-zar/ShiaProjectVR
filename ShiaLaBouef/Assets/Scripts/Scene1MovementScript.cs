@@ -14,6 +14,7 @@ public class Scene1MovementScript : MonoBehaviour
     public GameObject firstBlood;
     public GameObject secondBlood;
     public GameObject thirdBlood;
+    public GameObject axe;
     public float speed = 2.0f;
     public float shiaSpeed = 2.05f;
     public int scene = 1;
@@ -23,6 +24,7 @@ public class Scene1MovementScript : MonoBehaviour
     public AudioClip scene3Clip;
     public AudioClip scene4Clip;
     public AudioClip scene5Clip;
+    public AudioClip scene6Clip;
     // Start is called before the first frame update
     void Start()
     {
@@ -89,6 +91,32 @@ public class Scene1MovementScript : MonoBehaviour
                 }
             }
         }
+        if(scene == 6)
+        {
+            if (flag == 0)
+            {
+                if (Rig.transform.position.z < 11.5f)
+                {
+                    speed = 0.0f;
+                    Shia.transform.position = new Vector3(30.71f, 0.01f, 8.5f);
+                    Shia.transform.eulerAngles = new Vector3(Shia.transform.eulerAngles.x, Shia.transform.eulerAngles.y - 55, Shia.transform.eulerAngles.z);
+                    Shia.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+                    flag = 1;
+                }
+            }
+            else if(flag == 1)
+            {
+                speed = -0.85f;
+                shiaSpeed = -.85f;
+                if (Rig.transform.position.z > 26)
+                {
+                    flag = 2;
+                    speed = 0;
+                    shiaSpeed = 0;
+                    axe.SetActive(true);
+                }
+            }
+        }
 
     }
 
@@ -136,9 +164,14 @@ public class Scene1MovementScript : MonoBehaviour
         Rig.transform.position = new Vector3(31.84f, 1, 35.197f);
         Rig.transform.eulerAngles = new Vector3(Rig.transform.eulerAngles.x, Rig.transform.eulerAngles.y + 18.5f, Rig.transform.eulerAngles.z);
 
-        //scene = 6;
-        //speed = .25f;
-        //Rig.transform.position = new Vector3(31.83f, 1, 35.197f);
-
+        yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length - 0.18f);
+        GetComponent<AudioSource>().clip = scene6Clip;
+        GetComponent<AudioSource>().Play();
+        
+        scene = 6;
+        speed = .25f;
+        Rig.transform.position = new Vector3(30.71f, 1, 13.85f);
+        Rig.transform.eulerAngles = new Vector3(Rig.transform.eulerAngles.x, Rig.transform.eulerAngles.y - 90.0f, Rig.transform.eulerAngles.z);
+        flag = 0;
     }
 }
