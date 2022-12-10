@@ -78,10 +78,11 @@ public class Scene1MovementScript : MonoBehaviour
                 speed = 0.0f;
                 if (flag == 0)
                 {
-                    Shia.transform.position = new Vector3(29.9f, .6f, 31.8f);
+                    Shia.transform.position = new Vector3(29.9f, .6f, 31.9f);
                     Rig.transform.position = new Vector3(31.2f, 1, 31.9f);
+                    Knife.SetActive(true);
 
-                    // Rig.transform.eulerAngles = new Vector3(Rig.transform.eulerAngles.x, Rig.transform.eulerAngles.y + (90 + 18.5f), Rig.transform.eulerAngles.z);
+                    Rig.transform.eulerAngles = new Vector3(Rig.transform.eulerAngles.x, Rig.transform.eulerAngles.y + (90 - 18.5f), Rig.transform.eulerAngles.z);
                     Shia.transform.eulerAngles = new Vector3(Shia.transform.eulerAngles.x, Shia.transform.eulerAngles.y - 210, Shia.transform.eulerAngles.z);
                     flag = 1;
                 }
@@ -130,10 +131,9 @@ public class Scene1MovementScript : MonoBehaviour
         GetComponent<AudioSource>().Play();
 
         scene = 5;
-        speed = .365f;
+        speed = .36f;
         Rig.transform.position = new Vector3(31.84f, 1, 35.197f);
         Rig.transform.eulerAngles = new Vector3(Rig.transform.eulerAngles.x, Rig.transform.eulerAngles.y + 18.5f, Rig.transform.eulerAngles.z);
-        Knife.SetActive(true);
 
         //scene = 6;
         //speed = .25f;
