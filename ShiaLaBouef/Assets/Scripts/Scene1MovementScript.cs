@@ -9,6 +9,7 @@ public class Scene1MovementScript : MonoBehaviour
     public GameObject Phone;
     public GameObject Shia;
     public GameObject Knife;
+    public GameObject Knife2;
     public GameObject BearTrap;
     public GameObject firstBlood;
     public GameObject secondBlood;
@@ -80,8 +81,8 @@ public class Scene1MovementScript : MonoBehaviour
                 {
                     Shia.transform.position = new Vector3(29.9f, .6f, 31.9f);
                     Rig.transform.position = new Vector3(31.2f, .75f, 31.9f);
-                    Knife.SetActive(true);
-
+                    Knife.SetActive(false);
+                    Knife2.SetActive(true);
                     Rig.transform.eulerAngles = new Vector3(Rig.transform.eulerAngles.x, Rig.transform.eulerAngles.y + (90 - 18.5f), Rig.transform.eulerAngles.z);
                     Shia.transform.eulerAngles = new Vector3(Shia.transform.eulerAngles.x, Shia.transform.eulerAngles.y - 210, Shia.transform.eulerAngles.z);
                     flag = 1;
