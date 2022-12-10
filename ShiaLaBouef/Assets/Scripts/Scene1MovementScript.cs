@@ -79,7 +79,7 @@ public class Scene1MovementScript : MonoBehaviour
                 if (flag == 0)
                 {
                     Shia.transform.position = new Vector3(29.9f, .6f, 31.9f);
-                    Rig.transform.position = new Vector3(31.2f, 1, 31.9f);
+                    Rig.transform.position = new Vector3(31.2f, .75f, 31.9f);
                     Knife.SetActive(true);
 
                     Rig.transform.eulerAngles = new Vector3(Rig.transform.eulerAngles.x, Rig.transform.eulerAngles.y + (90 - 18.5f), Rig.transform.eulerAngles.z);
