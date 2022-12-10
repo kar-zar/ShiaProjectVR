@@ -95,19 +95,19 @@ public class Scene1MovementScript : MonoBehaviour
         {
             if (flag == 0)
             {
-                if (Rig.transform.position.z < 11.5f)
+                if (Rig.transform.position.z < 11.0f)
                 {
                     speed = 0.0f;
-                    Shia.transform.position = new Vector3(30.71f, 0.01f, 8.5f);
-                    Shia.transform.eulerAngles = new Vector3(Shia.transform.eulerAngles.x, Shia.transform.eulerAngles.y - 55, Shia.transform.eulerAngles.z);
+                    Shia.transform.position = new Vector3(30.71f, 0.01f, 10f);
+                    Shia.transform.eulerAngles = new Vector3(Shia.transform.eulerAngles.x, Shia.transform.eulerAngles.y - 62, Shia.transform.eulerAngles.z);
                     Shia.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
                     flag = 1;
                 }
             }
             else if(flag == 1)
             {
-                speed = -0.85f;
-                shiaSpeed = -.85f;
+                speed = -0.70f;
+                shiaSpeed = 0.70f;
                 if (Rig.transform.position.z > 26)
                 {
                     flag = 2;
