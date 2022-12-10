@@ -85,7 +85,7 @@ public class Scene1MovementScript : MonoBehaviour
                     Rig.transform.position = new Vector3(31.2f, .75f, 31.9f);
                     Knife.SetActive(false);
                     Knife2.SetActive(true);
-                    Rig.transform.eulerAngles = new Vector3(Rig.transform.eulerAngles.x, Rig.transform.eulerAngles.y + (90 - 18.5f), Rig.transform.eulerAngles.z);
+                   // Rig.transform.eulerAngles = new Vector3(Rig.transform.eulerAngles.x, Rig.transform.eulerAngles.y + (90 - 18.5f), Rig.transform.eulerAngles.z);
                     Shia.transform.eulerAngles = new Vector3(Shia.transform.eulerAngles.x, Shia.transform.eulerAngles.y - 210, Shia.transform.eulerAngles.z);
                     flag = 1;
                 }
@@ -95,10 +95,10 @@ public class Scene1MovementScript : MonoBehaviour
         {
             if (flag == 0)
             {
-                if (Rig.transform.position.z < 11.0f)
+                if (Rig.transform.position.z < 11.25f)
                 {
                     speed = 0.0f;
-                    Shia.transform.position = new Vector3(30.71f, 0.01f, 10f);
+                    Shia.transform.position = new Vector3(31.11f, 0.01f, 9.4f);
                     Shia.transform.eulerAngles = new Vector3(Shia.transform.eulerAngles.x, Shia.transform.eulerAngles.y - 62, Shia.transform.eulerAngles.z);
                     Shia.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
                     flag = 1;
@@ -171,7 +171,7 @@ public class Scene1MovementScript : MonoBehaviour
         scene = 6;
         speed = .25f;
         Rig.transform.position = new Vector3(30.71f, 1, 13.85f);
-        Rig.transform.eulerAngles = new Vector3(Rig.transform.eulerAngles.x, Rig.transform.eulerAngles.y - 90.0f, Rig.transform.eulerAngles.z);
+        Rig.transform.eulerAngles = new Vector3(Rig.transform.eulerAngles.x, Rig.transform.eulerAngles.y - 18.5f, Rig.transform.eulerAngles.z);
         flag = 0;
     }
 }
