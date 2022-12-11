@@ -9,6 +9,7 @@ public class Scene1MovementScript : MonoBehaviour
     public GameObject Phone;
     public GameObject Shia;
     public GameObject Shia2;
+    public GameObject ShiaHead;
     public GameObject Knife;
     public GameObject Knife2;
     public GameObject BearTrap;
@@ -116,17 +117,20 @@ public class Scene1MovementScript : MonoBehaviour
                 if (Rig.transform.position.z > 16)
                 {
                     gun.SetActive(false);
+                    axe.SetActive(true);
                 }
                 if (Rig.transform.position.z > 29)
                 {
                     flag = 2;
                     speed = 0;
                     shiaSpeed = 0;
-                    axe.SetActive(true);
                     Shia.SetActive(false);
                     Shia2.transform.position = new Vector3(31.11f, 0.01f, 27.15f);
                    // Shia.transform.eulerAngles = new Vector3(Shia.transform.eulerAngles.x, Shia.transform.eulerAngles.y - 62, Shia.transform.eulerAngles.z);
                     Shia2.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+                    ShiaHead.transform.position = new Vector3(31.11f, 0.01f, 27.15f);
+                    // Shia.transform.eulerAngles = new Vector3(Shia.transform.eulerAngles.x, Shia.transform.eulerAngles.y - 62, Shia.transform.eulerAngles.z);
+                    ShiaHead.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
 
                 }
             }
@@ -169,7 +173,7 @@ public class Scene1MovementScript : MonoBehaviour
         Shia.transform.position = new Vector3(30.08f, .5f, 32.64f);
         Shia.transform.eulerAngles = new Vector3(Shia.transform.eulerAngles.x, Shia.transform.eulerAngles.y - 90, Shia.transform.eulerAngles.z);
         Shia.transform.localScale = new Vector3(1, 1, 1);
-        yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length - 0.18f);
+        yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length - 0.24f);
         GetComponent<AudioSource>().clip = scene5Clip;
         GetComponent<AudioSource>().Play();
 
@@ -192,6 +196,7 @@ public class Scene1MovementScript : MonoBehaviour
         yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length - 0.18f);
         GetComponent<AudioSource>().clip = scene7Clip;
         GetComponent<AudioSource>().Play();
-        Rig.transform.position = new Vector3(30.71f, -0.1f, 26.0054f);
+        Rig.transform.position = new Vector3(30.71f, -0.1f, 28.5f);
+        ShiaHead.transform.position = new Vector3(32.71f, .25f, 27.5f);
     }
 }

@@ -20,11 +20,5 @@ public class AvatarMovement : MonoBehaviour
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
 
     }
-    void OnCollisionEnter(Collision col)
-    {
-        if (col.gameObject.tag == "Axe")
-        {
-            Shia.SetActive(false);
-        }
-    }
+   
 }
