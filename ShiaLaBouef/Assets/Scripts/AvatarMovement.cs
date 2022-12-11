@@ -5,11 +5,12 @@ using UnityEngine;
 public class AvatarMovement : MonoBehaviour
 {
     public float speed = 2.2f;
+    public GameObject Shia;
     // Start is called before the first frame update
     public GameObject XRorigin;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -17,6 +18,13 @@ public class AvatarMovement : MonoBehaviour
     {
         speed = XRorigin.GetComponent<Scene1MovementScript>().shiaSpeed;
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
-        
+
+    }
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.tag == "Axe")
+        {
+            Shia.SetActive(false);
+        }
     }
 }

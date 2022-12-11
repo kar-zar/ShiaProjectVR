@@ -8,6 +8,7 @@ public class Scene1MovementScript : MonoBehaviour
     public GameObject Rig;
     public GameObject Phone;
     public GameObject Shia;
+    public GameObject Shia2;
     public GameObject Knife;
     public GameObject Knife2;
     public GameObject BearTrap;
@@ -15,6 +16,7 @@ public class Scene1MovementScript : MonoBehaviour
     public GameObject secondBlood;
     public GameObject thirdBlood;
     public GameObject axe;
+    public GameObject gun;
     public float speed = 2.0f;
     public float shiaSpeed = 2.05f;
     public int scene = 1;
@@ -25,6 +27,7 @@ public class Scene1MovementScript : MonoBehaviour
     public AudioClip scene4Clip;
     public AudioClip scene5Clip;
     public AudioClip scene6Clip;
+    public AudioClip scene7Clip;
     // Start is called before the first frame update
     void Start()
     {
@@ -97,6 +100,7 @@ public class Scene1MovementScript : MonoBehaviour
             {
                 if (Rig.transform.position.z < 11.25f)
                 {
+                    gun.SetActive(true);
                     speed = 0.0f;
                     Shia.transform.position = new Vector3(31.11f, 0.01f, 9.4f);
                     Shia.transform.eulerAngles = new Vector3(Shia.transform.eulerAngles.x, Shia.transform.eulerAngles.y - 62, Shia.transform.eulerAngles.z);
@@ -106,14 +110,24 @@ public class Scene1MovementScript : MonoBehaviour
             }
             else if(flag == 1)
             {
+
                 speed = -0.70f;
                 shiaSpeed = 0.70f;
-                if (Rig.transform.position.z > 26)
+                if (Rig.transform.position.z > 16)
+                {
+                    gun.SetActive(false);
+                }
+                if (Rig.transform.position.z > 29)
                 {
                     flag = 2;
                     speed = 0;
                     shiaSpeed = 0;
                     axe.SetActive(true);
+                    Shia.SetActive(false);
+                    Shia2.transform.position = new Vector3(31.11f, 0.01f, 27.15f);
+                   // Shia.transform.eulerAngles = new Vector3(Shia.transform.eulerAngles.x, Shia.transform.eulerAngles.y - 62, Shia.transform.eulerAngles.z);
+                    Shia2.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+
                 }
             }
         }
@@ -144,7 +158,7 @@ public class Scene1MovementScript : MonoBehaviour
         speed = 1.0f;
         Rig.transform.position = new Vector3(35.184f, 0.5f, 115);
         Rig.transform.eulerAngles = new Vector3(Rig.transform.eulerAngles.x, Rig.transform.eulerAngles.y + 180, Rig.transform.eulerAngles.z);
-        yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length - 0.18f);
+        yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length - 0.10f);
 
         scene = 4;
         //Shia.SetActive(true);
@@ -164,7 +178,7 @@ public class Scene1MovementScript : MonoBehaviour
         Rig.transform.position = new Vector3(31.84f, 1, 35.197f);
         Rig.transform.eulerAngles = new Vector3(Rig.transform.eulerAngles.x, Rig.transform.eulerAngles.y + 18.5f, Rig.transform.eulerAngles.z);
 
-        yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length - 0.18f);
+        yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length - 0.22f);
         GetComponent<AudioSource>().clip = scene6Clip;
         GetComponent<AudioSource>().Play();
         
@@ -173,5 +187,11 @@ public class Scene1MovementScript : MonoBehaviour
         Rig.transform.position = new Vector3(30.71f, 1, 13.85f);
         Rig.transform.eulerAngles = new Vector3(Rig.transform.eulerAngles.x, Rig.transform.eulerAngles.y - 18.5f, Rig.transform.eulerAngles.z);
         flag = 0;
+
+
+        yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length - 0.18f);
+        GetComponent<AudioSource>().clip = scene7Clip;
+        GetComponent<AudioSource>().Play();
+        Rig.transform.position = new Vector3(30.71f, -0.1f, 26.0054f);
     }
 }
