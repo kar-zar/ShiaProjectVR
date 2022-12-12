@@ -3,7 +3,28 @@ guid: 4d4422dc3c3cb594dabf567566c3457e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Rig: {instanceID: 0}
+  - Phone: {instanceID: 0}
+  - Shia: {instanceID: 0}
+  - Shia2: {instanceID: 0}
+  - ShiaHead: {instanceID: 0}
+  - Knife: {instanceID: 0}
+  - Knife2: {instanceID: 0}
+  - BearTrap: {instanceID: 0}
+  - firstBlood: {instanceID: 0}
+  - secondBlood: {instanceID: 0}
+  - thirdBlood: {instanceID: 0}
+  - axe: {instanceID: 0}
+  - gun: {instanceID: 0}
+  - scene1Clip: {instanceID: 0}
+  - scene2Clip: {instanceID: 0}
+  - scene3Clip: {instanceID: 0}
+  - scene4Clip: {instanceID: 0}
+  - scene5Clip: {instanceID: 0}
+  - scene6Clip: {instanceID: 0}
+  - scene7Clip: {instanceID: 0}
+  - bloodParticle: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

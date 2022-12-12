@@ -18,6 +18,7 @@ public class Scene1MovementScript : MonoBehaviour
     public GameObject thirdBlood;
     public GameObject axe;
     public GameObject gun;
+    public GameObject gameOverScreen;
     public float speed = 2.0f;
     public float shiaSpeed = 2.05f;
     public int scene = 1;
@@ -29,6 +30,7 @@ public class Scene1MovementScript : MonoBehaviour
     public AudioClip scene5Clip;
     public AudioClip scene6Clip;
     public AudioClip scene7Clip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -198,5 +200,10 @@ public class Scene1MovementScript : MonoBehaviour
         GetComponent<AudioSource>().Play();
         Rig.transform.position = new Vector3(30.71f, -0.1f, 28.5f);
         ShiaHead.transform.position = new Vector3(32.71f, .25f, 27.5f);
+
+        yield return new WaitForSeconds(15);
+        gameOverScreen.SetActive(true);
+
+
     }
 }
